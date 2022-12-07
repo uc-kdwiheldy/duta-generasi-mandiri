@@ -14,13 +14,24 @@ function count(str) {
   for (let i = 0; i < keys.length; i++) {
     if (arrk === null || arrk === void 0 ? void 0 : arrk.length) {
       for (let j = 0; j < arrk.length; j++) {
-        if (arrk[j].toLowerCase() > keys[i].toLowerCase()) {
-          arrk.splice(j, 0, keys[i]);
-          j += arrk.length;
-        }
-        else if (j === arrk.length - 1) {
-          arrk.push(keys[i]);
-          j += arrk.length;
+        if (arrk[j].toLowerCase() !== keys[i].toLowerCase()) {
+          if (arrk[j].toLowerCase() > keys[i].toLowerCase()) {
+            arrk.splice(j, 0, keys[i]);
+            j += arrk.length;
+          }
+          else if (j === arrk.length - 1) {
+            arrk.push(keys[i]);
+            j += arrk.length;
+          }
+        } else {
+          if (arrk[j] > keys[i]) {
+            arrk.splice(j, 0, keys[i]);
+            j += arrk.length;
+          }
+          else if (j === arrk.length - 1) {
+            arrk.push(keys[i]);
+            j += arrk.length;
+          }
         }
       }
     }
